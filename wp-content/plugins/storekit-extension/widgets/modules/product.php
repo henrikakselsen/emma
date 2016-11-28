@@ -119,7 +119,9 @@ if( !class_exists( 'Layers_WooCommerce_Product_Widget' ) && class_exists( 'Layer
 			$widget = wp_parse_args( $instance, $instance_defaults );
 
 			// Enqueue Masonry if need be
-			if( 'list-masonry' == $this->check_and_return( $widget , 'design', 'liststyle' ) ) $this->enqueue_masonry();
+			if( 'list-masonry' == $this->check_and_return( $widget, 'design', 'liststyle' ) ) {
+				wp_enqueue_script( LAYERS_THEME_SLUG . '-layers-masonry-js' );
+			}
 
 			// Set the span class for each column
 			if( 'list-list' == $widget['design'][ 'liststyle' ] ) {

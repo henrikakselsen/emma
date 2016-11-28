@@ -105,7 +105,9 @@ if( !class_exists( 'Layers_WooCommerce_Category_Widget' ) && class_exists( 'Laye
 			$widget = wp_parse_args( $instance, $instance_defaults );
 
 			// Enqueue Masonry if need be
-			if( 'list-masonry' == $this->check_and_return( $widget , 'design', 'liststyle' ) ) $this->enqueue_masonry();
+			if( 'list-masonry' == $this->check_and_return( $widget, 'design', 'liststyle' ) ) {
+				wp_enqueue_script( LAYERS_THEME_SLUG . '-layers-masonry-js' );
+			}
 
 			// Set the span class for each column
 			if( isset( $widget['design'][ 'columns']  ) ) {
@@ -204,7 +206,7 @@ if( !class_exists( 'Layers_WooCommerce_Category_Widget' ) && class_exists( 'Laye
 								<article class="<?php echo $post_column_class; ?>" data-cols="<?php echo $col_count; ?>">
 
 									<?php // Layers Featured Media
-									if( isset( $widget['show_media'] ) ) { ?>
+									if( isset( $widget['show_media'] ) && '' != $media ) { ?>
 										<div class="<?php echo 'thumbnail-media' .  ( ( isset( $widget['design'][ 'imageratios' ] ) && 'image-round' == $widget['design'][ 'imageratios' ] ) ? ' image-rounded' : '' ); ?>">
 											<a href="<?php echo get_term_link( $term->term_id, $this->taxonomy ); ?>">
 												<?php echo $media; ?>

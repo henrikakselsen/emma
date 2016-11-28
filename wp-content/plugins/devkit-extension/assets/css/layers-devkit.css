@@ -1,0 +1,370 @@
+/*-------------------------------*/
+/*- DEVKIT PANEL ----------------*/
+
+.layers-devkit-panel{
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	margin-left: -180px;
+	width: 480px;
+	background: rgb(47, 47, 47);
+	height: 100%;
+}
+
+	/*---------------------------*/
+	/*- ANIMATIONS --------------*/
+	body.layers-devkit-animations .layers-devkit-panel,
+	body.layers-devkit-animations .wp-full-overlay.expanded,
+	body.layers-devkit-animations .wp-full-overlay.expanded .wp-full-overlay-sidebar,
+	body.layers-devkit-animations #available-widgets,
+	body.layers-devkit-animations #customize-preview,
+	body.layers-devkit-animations #customize-preview iframe{
+		transition: all ease-in-out .3s !important;
+		-webkit-transition-duration: all ease-in-out .3s !important;
+	}
+
+	/*---------------------------*/
+	/*- PANEL OPEN --------------*/
+	body.layers-devkit-open .layers-devkit-panel{
+		margin-left: 0;
+	}
+	body.layers-devkit-open .wp-full-overlay.expanded{
+		margin-left: 480px;
+	}
+	body.layers-devkit-open .wp-full-overlay.expanded .wp-full-overlay-sidebar{
+		margin-left: -300px !important;
+	}
+	body.layers-devkit-open #available-widgets{
+		margin-left: -500px;
+	}
+
+	body.layers-devkit-open .customize-controls-close {
+		left: -100px;
+	}
+	body.layers-devkit-open .control-panel-back {
+		left: -100px;
+	}
+	#customize-footer-actions {
+		transition: .3s;
+	}
+	body.layers-devkit-open #customize-footer-actions{
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	/*---------------------------*/
+	/*- ACTION BAR --------------*/
+	.layers-devkit-panel .layers-devkit-action-bar{
+		position: absolute;
+		z-index: 1000;
+		width: 100%;
+		background: #222;
+		border-bottom: 1px solid #111;
+		color: #fff;
+		vertical-align: middle;
+	}
+	.layers-devkit-panel .layers-devkit-action-bar #devkit-close-button{
+		display: inline-block;
+		width: 45px;
+		height: 45px;
+		border-right: 1px solid #111;
+		line-height: 58px;
+		text-align: center;
+		color: rgb(203, 203, 203);
+		cursor: pointer;
+		vertical-align: middle;
+		transition: .3s;
+	}
+
+		/*-----------------------*/
+		/*- CLOSE BUTTON --------*/
+		.layers-devkit-panel .layers-devkit-action-bar #devkit-close-button:after{
+			font: 400 22px/1 dashicons;
+			content: "\f341";
+		}
+		.layers-devkit-panel .layers-devkit-action-bar #devkit-close-button:hover{
+			background: #111;
+			color: #fff;
+		}
+
+		/*-----------------------*/
+		/*- TAB SWITCHER --------*/
+		.layers-devkit-tabs{
+			display: inline-block;
+			vertical-align: middle;
+			padding: 0 6px;
+			margin: -1px 0 0;
+			font-size: 0;
+		}
+		.layers-devkit-tabs .layers-devkit-tab{
+			display: inline-block;
+			vertical-align: middle;
+			overflow: hidden;
+			min-width: 22px;
+			padding: 0 8px;
+			margin: 0;
+			background: #333;
+			border: 1px solid #0A0A0A;
+			border-left-width: 0;
+			box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.11);
+			text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+			text-align: center;
+			font-size: 13px;
+			color: #888;
+			transition: .15s;
+			line-height: 26px;
+			cursor: pointer;
+		}
+		.layers-devkit-tabs .layers-devkit-tab.active,
+		.layers-devkit-tabs .layers-devkit-tab:hover{
+			background-color: #777;
+			border-color: #111;
+			color: #fff;
+			text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+		}
+		.layers-devkit-tabs.layers-devkit-css-tabs .layers-devkit-tab:first-child{
+			border-left-width: 1px;
+			border-top-left-radius: 3px;
+			border-bottom-left-radius: 3px;
+		}
+		.layers-devkit-tabs.layers-devkit-css-tabs .layers-devkit-tab:last-child{
+			border-top-right-radius: 3px;
+			border-bottom-right-radius: 3px;
+		}
+		.layers-devkit-tabs.layers-devkit-javascript-tabs .layers-devkit-tab{
+			border-radius: 3px;
+			border-width: 1px;
+		}
+
+		/*-----------------------*/
+		/*- SCREENSIZE BUTTONS --*/
+		.layers-devkit-tab.responsive{
+			line-height: unset;
+		}
+		.layers-devkit-hide-text{
+			display: none;
+		}
+		.layers-devkit-tab .dashicons,
+		.layers-devkit-tab [class^="icon-"],
+		.layers-devkit-tab [class*=" icon-"]{
+			line-height: 26px;
+			font-size: 16px;
+		}
+
+
+.layers-devkit-code-panel-holder{
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 45px 0px 0px;
+	color: rgb(153, 153, 153);
+	display: none;
+}
+.layers-devkit-code-panel-holder.active{
+	display: block;
+}
+.layers-devkit-code-panel-holder #layers-devkit-run{
+	position: absolute;
+	z-index: 5;
+	left: 56px;
+	top: 56px;
+	background: rgba(0, 0, 0, 0.15);
+	padding: 1px 3px 0px 7px;
+	vertical-align: middle;
+	background: #333;
+	border: 1px solid #0A0A0A;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.11), 0 1px 0 rgba(0, 0, 0, 0.3);
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+	color: #888;
+	transition: .3s;
+	cursor: pointer;
+	border-radius: 3px;
+}
+.layers-devkit-linting-enabled  #layers-devkit-run{
+	left: 73px;
+}
+
+.layers-devkit-code-panel-holder #layers-devkit-run .dashicons{
+	font-size: 13px;
+	display: inline-block;
+	line-height: 21px;
+	width: 13px;
+}
+.layers-devkit-code-panel-holder #layers-devkit-run:hover{
+	background-color: #777;
+	border-color: #111;
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+.layers-devkit-code-panel-holder .code-panel{
+	background: blue;
+	position: absolute;
+	width: 100%;
+	height: 92%;
+}
+
+.layers-devkit-wp-actions{
+	display: inline-block;
+	vertical-align: bottom;
+	margin: 8px;
+	float: right;
+	position: relative;
+	max-width: 145px;
+}
+.layers-devkit-wp-actions .button-primary.save{
+	float: right;
+	
+	max-width: 156px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.layers-devkit-wp-actions .spinner{
+	visibility: hidden;
+	position: absolute;
+	right: 50%;
+	top: 45px;
+	margin: 0 -14px 0 0;
+	pointer-events: none;
+	background-color: #FFF;
+	background-position: 50% 50%;
+	opacity: .5;
+	border-radius: 100px;
+	padding: 1px;
+}
+.saving .layers-devkit-wp-actions .spinner{
+	visibility: visible;
+}
+
+#accordion-section-layers-css .devkit-button{
+	position:absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	left: 0;
+	cursor: pointer;
+}
+.devkit-button:before{
+	right: 10px;
+	top: 11px;
+	position: absolute;
+	font-size: 19px;
+	color: rgb(79, 79, 79);
+}
+
+/*-------------------------------*/
+/*- CODEMIRROR CUSTOM STYLING ---*/
+
+	.CodeMirror{
+		width: 100%;
+		height: 100%;
+	}
+	.cm-s-3024-night .CodeMirror-gutters{
+		background: rgb(24, 24, 24);
+	}
+	.cm-s-mbo.CodeMirror{
+
+}
+	.CodeMirror-gutter.CodeMirror-linenumbers{
+		width: 45px;
+	}
+	#layers-devkit-tab-js-main-tab .CodeMirror-lines{
+		padding-top: 42px;
+	}
+
+/*-------------------------------*/
+/*- RESPONSIVE SIZES ------------*/
+#customize-preview{
+	background: no-repeat 50% 50%;
+	background-color: #eee;
+}
+#customize-preview iframe{
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 0px solid rgba(0, 0, 0, 0);
+	border-radius: 0;
+	box-shadow: none;
+}
+#customize-preview.layers-responsive-preview.layers-devkit-tab-css-mobile{
+	/* background-image: url('../images/responsive-preview-mobile.png'); */
+}
+#customize-preview.layers-responsive-preview.layers-devkit-tab-css-tablet{
+	/* background-image: url('../images/responsive-preview-tablet.png'); */
+}
+#customize-preview.layers-responsive-preview.layers-devkit-tab-css-desktop{}
+
+#customize-preview.layers-responsive-preview.layers-devkit-tab-css-mobile iframe{
+	padding: 42px 16px 82px;
+	background: #323A45;
+	border-radius: 20px;
+	box-shadow:
+		0px 1px 0px rgba(0, 0, 0, 0.2) inset,
+		0px 3px 0px rgba(255, 255, 255, 0.2) inset,
+		0px 12px 30px rgba(0, 0, 0, 0.6),
+		0px 3px 2px rgba(0, 0, 0, 0.15);
+}
+#customize-preview.layers-responsive-preview.layers-devkit-tab-css-tablet iframe{
+	padding: 62px 16px;
+	background: #323A45;
+	border-radius: 20px;
+	box-shadow:
+		0px 2px 0px rgba(0, 0, 0, 0.6) inset,
+		0px 4px 0px rgba(255, 255, 255, 0.4) inset,
+		0px 12px 30px rgba(0, 0, 0, 0.6),
+		0px 3px 2px rgba(0, 0, 0, 0.15);
+}
+#customize-preview.layers-responsive-preview.layers-devkit-tab-css-tablet iframe{
+	padding: 62px 16px;
+	background: #323A45;
+	border-radius: 20px;
+	box-shadow:
+		0px 2px 0px rgba(0, 0, 0, 0.6) inset,
+		0px 4px 0px rgba(255, 255, 255, 0.4) inset,
+		0px 12px 30px rgba(0, 0, 0, 0.6),
+		0px 3px 2px rgba(0, 0, 0, 0.15);
+}
+#customize-preview.layers-responsive-preview.layers-devkit-tab-css-desktop iframe{}
+
+#customize-preview.layers-responsive-preview.layers-responsive-preview-bigger iframe{
+	border: 0px solid rgba(0, 0, 0, 0);
+	border-radius: 0;
+	box-shadow: none;
+	padding: 0;
+	background: none;
+}
+#customize-preview.layers-responsive-preview.layers-responsive-preview-smaller iframe{
+	top: 50%;
+	left: 50%;
+	overflow: auto;
+	transform: translate(-50%, -50%);
+}
+
+/*-------------------------------*/
+/*- DEVKIT AS WP PLUGIN ---------*/
+.layers-devkit-button {
+	font-size: 24px;
+	left: 47px;
+	top: 0;
+	position: absolute;
+	vertical-align: bottom;
+	width: 48px;
+	background: rgba(0, 0, 0, 0);
+	border-right: 1px solid #DDD;
+	border-left: 1px solid transparent;
+	color: #555;
+	text-align: center;
+	transition: background .1s ease-in-out;
+	display: block;
+	cursor: pointer;
+}
+.layers-devkit-button:hover{
+	background: #DDD;
+	border-color: #CCC;
+	color: black;
+}
+.layers-devkit-button i {
+	line-height: 45px;
+	height: 45px;
+}

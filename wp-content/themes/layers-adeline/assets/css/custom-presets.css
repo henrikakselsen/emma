@@ -1,0 +1,91 @@
+/*
+*	Brightlevels - Adeline
+*	Custom CSS used in Preset 
+*	Layouts/Pages( all custom-bgls classes)
+*/
+
+
+
+.custom-bgls-side-by-side.content-vertical-massive {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+
+/*	====================================================
+	Responsive: if screen is less than 641px will apply.
+	====================================================
+*/
+@media only screen and (max-width: 641px){
+
+	.custom-bgls-side-by-side .column {
+		padding: 0 20px;
+		margin-bottom: 0;
+	}
+
+	.custom-bgls-side-by-side .media {
+		padding-bottom: 50px;
+	}
+
+}
+
+/*  ====================================================
+	Responsive: if screen is more than 641px will apply.
+	====================================================
+*/
+@media only screen and (min-width: 641px){
+
+	/*side by side */
+
+	.custom-bgls-side-by-side..content-vertical-massive {
+		padding: 0;
+	}
+
+	.custom-bgls-side-by-side .container {
+		max-width: 100%;
+		padding: 0;
+	}
+
+	.custom-bgls-side-by-side .media {
+		height: 600px;
+		max-width: 1040px;
+		margin: auto;
+	}
+
+	.custom-bgls-side-by-side .section-title {
+		max-width: 1040px;
+		margin: auto;
+	}
+
+
+	.custom-bgls-side-by-side .content,
+	.custom-bgls-side-by-side .column {
+		padding-bottom: 0;
+		padding-top: 0;
+		margin-bottom: 0;
+		width: 100%;
+	}
+
+	.custom-bgls-side-by-side .media-image, 
+	.custom-bgls-side-by-side .media-body {
+		position: relative;
+		top: 50%;
+			transform: translateY(-50%);
+
+	}
+
+	.widget.bgls-contact {
+		position: absolute;
+		width: 100%;
+	}
+
+	.widget.bgls-contact .column {
+		background-color: white;
+		padding: 3%;
+		width: 33%;
+		top: -615px;
+		position: absolute;
+	}
+
+
+}

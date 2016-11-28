@@ -1,6 +1,6 @@
 <?php /*
  * Plugin Name: StoreKit - WooCommerce for Layers
- * Version: 1.10.0
+ * Version: 1.1.1
  * Plugin URI: http://www.oboxthemes.com
  * Description: Turbo charge WooCommerce with StoreKit and Layers. StoreKit combines awesome WooCommerce enhancements you and your users will love.
  * Author: Obox
@@ -8,7 +8,7 @@
  * Requires at least: 4.0
  * Tested up to: 4.1
  * Layers Plugin: True
- * Layers Required Version: 1.1.0
+ * Layers Required Version: 1.5.0
  *
  * Text Domain: layers-storekit
  * Domain Path: /lang/
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 if ( defined( 'SCRIPT_DEBUG' ) && TRUE == SCRIPT_DEBUG ) {
 	define( 'LAYERS_STOREKIT_VER', rand( 0 , 100 ) );
 } else {
-	define( 'LAYERS_STOREKIT_VER', '1.10.0' );
+	define( 'LAYERS_STOREKIT_VER', '1.1.1' );
 }
 
 define( 'LAYERS_STOREKIT_SLUG' , 'layers-storekit' );

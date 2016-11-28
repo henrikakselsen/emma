@@ -1,6 +1,13 @@
 # StoreKit Changelog
 
 =======
+##1.1.1
+### 12 September 2016
+
+* **Tweak** - Added more sepcificity to regular WooCommerce widgets in the page building interface. *DP*
+* **Fix** - Fixed conditional statement around the Category Widget Thumbnail section. *MP*
+
+=======
 ##1.1.0
 ### 01 July 2016
 

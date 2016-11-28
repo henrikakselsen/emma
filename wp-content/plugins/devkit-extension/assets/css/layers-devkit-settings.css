@@ -1,0 +1,29 @@
+
+/*-------------------------------*/
+/*- DEVKIT SETTINGS -------------*/
+
+ul.devkit-settings-optionrow {
+	max-width: 25em;
+	border-top: 1px solid;
+	border-color: #DDD;
+	margin: 0 0 12px;
+}
+ul.devkit-settings-optionrow li {
+	padding: 12px 0px;
+	border-bottom: 1px solid #DDD;
+	margin: 0;
+}
+ul.devkit-settings-optionrow li:last-child {
+}
+
+ul.devkit-settings-optionrow li label:first-child{
+    width: 150px;
+	
+    display: inline-block;
+}
+ul.devkit-settings-optionrow li input{
+
+}
+ul.devkit-settings-optionrow li input[type=text]{
+    min-width: 73px;
+}
